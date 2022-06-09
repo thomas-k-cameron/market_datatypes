@@ -25,6 +25,17 @@ impl TryFrom<&str> for Side {
     }
 }
 
+/// buy == true && sell == false
+impl From<bool> for Side {
+    fn from(s: bool) -> Self {
+        match s {
+            true => Side::Buy,
+            false => Side::Sell
+        }
+    }
+}
+
+
 impl FromStr for Side {
     type Err = ();
     fn from_str(s: &str) -> Result<Self, Self::Err> {
